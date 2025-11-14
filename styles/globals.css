@@ -82,6 +82,11 @@
     --text-md: var(--text-md);
     --text-lg: var(--text-lg);
     --text-xl: var(--text-xl);
+    --text-title-md: var(--title-md);
+    --text-title-lg: var(--title-lg);
+    --text-title-xl: var(--title-xl);
+    --text-subtitle-md: var(--subtitle-md);
+    --text-subtitle-lg: var(--subtitle-lg);
 }
 
 @layer base {
@@ -148,6 +153,15 @@
         --text-md: 16px;
         --text-lg: 18px;
         --text-xl: 20px;
+
+        /* Title Font Size */
+        --title-md: 40px;
+        --title-lg: 48px;
+        --title-xl: 56px;
+
+        /* Subtitle Font Size */
+        --subtitle-md: 24px;
+        --subtitle-lg: 32px;
     }
 
     .theme-violet {
