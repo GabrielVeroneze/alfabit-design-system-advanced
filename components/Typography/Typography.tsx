@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 
-const textVariants = cva('text-gray-primary font-normal', {
+const textVariants = cva('text-gray-primary', {
     variants: {
         variant: {
             primary: 'text-gray-primary',
