@@ -1,3 +1,5 @@
+import classNames from 'classnames'
+
 export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode
     rounded?: boolean
@@ -24,7 +26,18 @@ const Box = ({
     className,
     ...rest
 }: BoxProps) => {
-    return <div {...rest}>Box</div>
+    const classes = classNames({
+        'rounded-md': rounded,
+        'border border-gray-100': border,
+        'bg-dark': filledBackground,
+        [boxClassMap[type]]: type,
+    })
+
+    return (
+        <div className={classNames(classes, className)} {...rest}>
+            {children}
+        </div>
+    )
 }
 
 export default Box
