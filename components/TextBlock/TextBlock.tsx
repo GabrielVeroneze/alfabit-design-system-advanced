@@ -1,22 +1,40 @@
-export interface TextBlockProps {
-    title: string
-    content: string
-    className?: string
+import Box from '@/components/Box/Box'
+import Typography from '@/components/Typography/Typography'
+
+export interface TextBlockProps extends React.HTMLAttributes<HTMLElement> {
+    children: React.ReactNode
+    title?: string
+    type?: 'primary' | 'secondary' | 'dark'
 }
 
-const TextBlock = ({ title, content, className }: TextBlockProps) => {
+const TextBlock = ({
+    children,
+    title,
+    type = 'dark',
+    className,
+    ...rest
+}: TextBlockProps) => {
+    const textClass = type === 'primary' ? 'text-white' : 'text-gray-primary'
+
     return (
-        <div
+        <Box
             className={`
-                flex flex-col justify-center items-start gap-1 px-8 py-6 bg-dark rounded-md
+                flex flex-col justify-center items-start gap-1 px-8 py-6
                 ${className}
             `}
+            type={type}
+            rounded
+            {...rest}
         >
-            <h3 className="text-gray-primary text-2xl font-extrabold">
+            <Typography
+                className={`${textClass} font-extrabold`}
+                element="h3"
+                size="subtitle2"
+            >
                 {title}
-            </h3>
-            <p className="text-gray-primary text-md font-normal">{content}</p>
-        </div>
+            </Typography>
+            <p className={`${textClass} text-md font-normal`}>{children}</p>
+        </Box>
     )
 }
 
