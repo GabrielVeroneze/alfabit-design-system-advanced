@@ -1,3 +1,4 @@
+import { UserIcon } from '@heroicons/react/24/outline'
 import classNames from 'classnames'
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -22,7 +23,9 @@ const Avatar = ({ size = 'xs', className, ...rest }: AvatarProps) => {
                 className,
             )}
             {...rest}
-        ></div>
+        >
+            <UserIcon className='absolute w-1/2 h-1/2' />
+        </div>
     )
 }
 
