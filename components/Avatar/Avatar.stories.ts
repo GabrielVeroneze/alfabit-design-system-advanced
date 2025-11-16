@@ -5,6 +5,12 @@ const meta = {
     title: 'Atoms/Avatar',
     component: Avatar,
     argTypes: {
+        image: {
+            type: 'string',
+        },
+        description: {
+            type: 'string',
+        },
         size: {
             control: 'radio',
             options: ['xs', 'sm', 'md', 'lg'],
@@ -19,6 +25,13 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {},
+}
+
+export const AvatarWithImage: Story = {
+    args: {
+        image: 'https://placehold.co/400x400.png',
+        size: 'lg',
+    },
 }
