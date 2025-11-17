@@ -5,7 +5,7 @@ import {
     SwitchProps as HeadlessSwitchProps,
 } from '@headlessui/react'
 
-export interface SwitchProps {
+export interface SwitchProps extends HeadlessSwitchProps {
     defaultEnable?: boolean
     variant?: 'common' | 'contract'
     disabled?: boolean
@@ -38,6 +38,7 @@ const Switch = ({
             disabled={disabled}
             {...rest}
         >
+            <span className="sr-only">switch toggle</span>
             {variant === 'common' && <span></span>}
             {variant === 'contract' && (
                 <span>
