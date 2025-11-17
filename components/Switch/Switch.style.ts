@@ -1,13 +1,18 @@
 import { cva } from 'class-variance-authority'
-import { SwitchProps } from './Switch'
 import classNames from 'classnames'
 
-const useStyle = ({
+interface SwitchStyleOptions {
+    variant: 'common' | 'contract'
+    enabled?: boolean
+    disabled?: boolean
+}
+
+const getSwitchStyles = ({
     variant,
     enabled,
     disabled,
-}: SwitchProps & { enabled: boolean | undefined }) => {
-    const containerVariant = cva(
+}: SwitchStyleOptions) => {
+    const containerVariants = cva(
         classNames(
             'relative inline-flex items-center h-6 w-16 rounded-full outline-none disabled:bg-disabled',
             { 'pointer-events-none': disabled },
@@ -31,7 +36,7 @@ const useStyle = ({
         },
     )
 
-    const containerClasses = containerVariant({ variant })
+    const containerClasses = containerVariants({ variant })
 
     const switchClasses = classNames(
         'inline-block bg-white h-5 w-5 rounded-full transform transition-transform duration-200 ease-in-out',
@@ -45,10 +50,10 @@ const useStyle = ({
     })
 
     return {
-        Icon: iconClasses,
+        Container: containerClasses,
         Switch: switchClasses,
-        Container: containerClasses
+        Icon: iconClasses,
     }
 }
 
-export default useStyle
+export default getSwitchStyles
