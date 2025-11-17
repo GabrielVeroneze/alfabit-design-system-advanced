@@ -4,7 +4,7 @@ import {
     Switch as HeadlessSwitch,
     SwitchProps as HeadlessSwitchProps,
 } from '@headlessui/react'
-import useStyle from './Switch.style'
+import getSwitchStyles from './Switch.style'
 
 export interface SwitchProps extends HeadlessSwitchProps {
     defaultEnable?: boolean
@@ -21,7 +21,7 @@ const Switch = ({
     ...rest
 }: SwitchProps) => {
     const [enabled, setEnabled] = useState(enabledByDefault)
-    const style = useStyle({ variant, enabled, disabled })
+    const styles = getSwitchStyles({ variant, enabled, disabled })
 
     const toggle = () => {
         const newState = !enabled
@@ -33,29 +33,21 @@ const Switch = ({
         }
     }
 
+    const Icon = enabled ? CheckIcon : XMarkIcon
+
     return (
         <HeadlessSwitch
             checked={enabled}
             onChange={toggle}
             disabled={disabled}
-            className={style.Container}
+            className={styles.Container}
             {...rest}
         >
             <span className="sr-only">switch toggle</span>
-            {variant === 'common' && <span className={style.Switch} />}
+            {variant === 'common' && <span className={styles.Switch} />}
             {variant === 'contract' && (
                 <span>
-                    {enabled ? (
-                        <CheckIcon
-                            className={style.Icon}
-                            aria-disabled={disabled}
-                        />
-                    ) : (
-                        <XMarkIcon
-                            className={style.Icon}
-                            aria-disabled={disabled}
-                        />
-                    )}
+                    <Icon className={styles.Icon} aria-disabled={disabled} />
                 </span>
             )}
         </HeadlessSwitch>
