@@ -21,8 +21,12 @@
     --color-secondary: var(--secondary);
     --color-tertiary: var(--tertiary);
     --color-quaternary: var(--quaternary);
+    --color-success: var(--success);
+    --color-error: var(--error);
 
     --color-hover: var(--hover);
+    --color-error-hover: var(--error-hover);
+    --color-success-hover: var(--success-hover);
     --color-click: var(--click);
     --color-icon: var(--icon);
     --color-outline: var(--outline);
@@ -96,8 +100,12 @@
         --secondary: #6284fd;
         --tertiary: #96adff;
         --quaternary: #ecf0ff;
+        --success: #3ac922;
+        --error: #ff3030;
 
         --hover: #1b4af0;
+        --success-hover: #28b411;
+        --error-hover: #ed2121;
         --click: #002ed0;
         --icon: #7c7b7b;
         --outline: #d7d7d7;
