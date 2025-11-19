@@ -29,6 +29,24 @@ export const Default: Story = {
     args: {},
 }
 
+export const AvatarSmall: Story = {
+    args: {
+        size: 'sm',
+    },
+}
+
+export const AvatarMedium: Story = {
+    args: {
+        size: 'md',
+    },
+}
+
+export const AvatarLarge: Story = {
+    args: {
+        size: 'lg',
+    },
+}
+
 export const AvatarWithImage: Story = {
     args: {
         image: 'https://placehold.co/400x400.png',
